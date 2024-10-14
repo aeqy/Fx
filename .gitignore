@@ -1,3 +1,5 @@
+Fx.WebApi/appsettings.*.json
+
 # JetBrains Rider
 .idea/
 *.sln.iml
