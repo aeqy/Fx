@@ -1,4 +1,5 @@
 Fx.WebApi/appsettings.*.json
+Fx.Infrastructure/Migrations
 
 # JetBrains Rider
 .idea/
