@@ -94,7 +94,14 @@ public class SeedDataService(
                     }
                 };
 
-                await applicationManager.UpdateAsync(applicationId, descriptor);
+                // await applicationManager.UpdateAsync(applicationId, descriptor);
+                
+                // 确保这里是正确的 OpenIddict 应用程序对象，而不是 string
+                var application = await applicationManager.FindByClientIdAsync(applicationId);
+                if (application != null)
+                {
+                    await applicationManager.UpdateAsync(application, descriptor);
+                }
             }
             else
             {
