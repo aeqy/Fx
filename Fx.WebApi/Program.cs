@@ -1,17 +1,16 @@
-using System.Security.Cryptography.X509Certificates;
 using Fx.Application.Interfaces;
 using Fx.Application.Services;
-using Fx.Domain.Entities;
 using Fx.Infrastructure.Date;
 using Fx.WebApi.Extensions;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // 配置日志记录
-builder.Logging.ConfigureLogging();
+// builder.Logging.ConfigureLogging();
+
+// 配置 Serilog 日志记录
+builder.Host.ConfigureSerilog(builder.Configuration);
 
 // 加载配置文件
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true); 
@@ -30,7 +29,6 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 
 // 注入种子数据服务
 builder.Services.AddScoped<SeedDataService>();
-
 
 
 builder.Services.AddControllers();
@@ -58,6 +56,8 @@ if (app.Environment.IsDevelopment())
 // app.UseCors("AllowAllOrigins");
 
 app.UseHttpsRedirection(); // 先重定向
+
+app.UseSerilogRequestLogging();
 
 // app.UseStaticFiles(); //先加载静态文件
 app.UseRouting(); // 先注册路由
