@@ -1,12 +1,10 @@
-using Fx.Application.Interfaces;
 using Fx.Domain.Entities;
-using Fx.Infrastructure.Date;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using OpenIddict.Abstractions;
 
-namespace Fx.Application.Services;
+namespace Fx.Infrastructure.Date;
 
 public class SeedDataService(
     AppDbContext context,
@@ -14,7 +12,6 @@ public class SeedDataService(
     RoleManager<IdentityRole<Guid>> roleManager,
     IOpenIddictApplicationManager applicationManager,
     ILogger<SeedDataService> logger)
-    : ISeedDataService
 {
     public async Task SeedAsync()
     {

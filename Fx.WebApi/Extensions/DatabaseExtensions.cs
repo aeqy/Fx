@@ -23,7 +23,7 @@ public static class DatabaseExtensions
             var dbContext = services.GetRequiredService<AppDbContext>();
 
             // 从依赖注入容器中获取种子数据服务 ISeedDataService
-            var seedDataService = services.GetRequiredService<ISeedDataService>();
+            var seedDataService = services.GetRequiredService<SeedDataService>();
 
             // 获取日志记录器，用于记录错误和信息日志
             var logger = services.GetRequiredService<ILogger<Program>>();

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Fx.Domain\Fx.Domain.csproj" />
+    <ProjectReference Include="..\Fx.Application\Fx.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

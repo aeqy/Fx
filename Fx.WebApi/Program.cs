@@ -29,7 +29,7 @@ builder.Services.ConfigureAuthentication(builder.Configuration);
 builder.Services.AddScoped<IAccountService, AccountService>();
 
 // 注入种子数据服务
-builder.Services.AddScoped<ISeedDataService, SeedDataService>();
+builder.Services.AddScoped<SeedDataService>();
 
 
 
